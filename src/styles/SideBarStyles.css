@@ -1,0 +1,16 @@
+.sideBar-link {
+    color: black;
+    text-decoration: none;
+}
+
+.sideBar-link:hover {
+    color: #BDE6FF;
+    text-decoration: underline;
+}
+
+.image-button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: block;
+}

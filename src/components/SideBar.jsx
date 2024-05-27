@@ -1,6 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
+import '../styles/SideBarStyles.css'
+import igLogo from '../Pictures/igLogo.png'
+import igLogoHover from '../Pictures/igLogoHover.png'
 
 const SideBar = ({isOpen, top}) => {
+    const [isHovering, setIsHovering] = useState(false)
+
     if (!isOpen) return null;
     return (
         <div style = {{
@@ -15,16 +20,18 @@ const SideBar = ({isOpen, top}) => {
         }}>
             <p><b>PRODUCTS</b></p>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
-            <p>ALL</p>
-            <p>BRACELETS</p>
-            <p>CLIPS</p>
-            <p>EARRINGS</p>
+            <div><a href = "../Pages/all.js" className = 'sideBar-link'>ALL</a></div>
+            <div><a href = "../Pages/bracelets.js" className = 'sideBar-link'>BRACELETS</a></div>
+            <div><a href = "../Pages/clips.js" className = 'sideBar-link'>CLIPS</a></div>
+            <div><a href = "../Pages/earrings.js" className = 'sideBar-link'>EARRINGS</a></div>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
-            <p><b>ABOUT ME!</b></p>
+            <div><a href = "../Pages/about.js" className = 'sideBar-link'><b>ABOUT ME!</b></a></div>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
-            <p><b>CONTACT</b></p>
+            <div><a href = "../Pages/contact.js" className = 'sideBar-link'><b>CONTACT</b></a></div>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
-            
+            <div>
+                <a href = "https://www.instagram.com/shopbubbli/" className = "image-button" onMouseEnter = {() => setIsHovering(true)} onMouseLeave = {() => setIsHovering(false)}><img src = {isHovering ? igLogoHover : igLogo} alt = "Logo" /></a>
+                </div>
         </div>
     )
 }
