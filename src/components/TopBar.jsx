@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import SideBar from './SideBar';
-import { TfiMenu } from 'react-icons/tfi';
-import { IoMdCart } from 'react-icons/io';
+import {TfiMenu} from 'react-icons/tfi';
+import {IoMdCart} from 'react-icons/io';
 import logo from '../Pictures/logo.png';
 
 const TopBar = ({ cartCount, cartTotal }) => {
