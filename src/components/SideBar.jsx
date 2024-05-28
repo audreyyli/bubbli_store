@@ -3,6 +3,8 @@ import '../styles/SideBarStyles.css'
 import igLogo from '../Pictures/igLogo.png'
 import igLogoHover from '../Pictures/igLogoHover.png'
 
+import { Link } from 'react-router-dom'
+
 const SideBar = ({isOpen, top}) => {
     const [isHovering, setIsHovering] = useState(false)
 
@@ -11,14 +13,14 @@ const SideBar = ({isOpen, top}) => {
         <div className = {`sideBar ${isOpen ? 'open' : ''}`} style = {{ left: isOpen ? '0' : '-250px'}}>
             <p><b>PRODUCTS</b></p>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
-            <div><a href = "../Pages/all.js" className = 'sideBar-link'>ALL</a></div>
-            <div><a href = "../Pages/bracelets.js" className = 'sideBar-link'>BRACELETS</a></div>
-            <div><a href = "../Pages/clips.js" className = 'sideBar-link'>CLIPS</a></div>
-            <div><a href = "../Pages/earrings.js" className = 'sideBar-link'>EARRINGS</a></div>
+            <div><Link to = "/all" className = 'sideBar-link'>ALL</Link></div>
+            <div><Link to = "/bracelets" className = 'sideBar-link'>BRACELETS</Link></div>
+            <div><Link to = "/clips" className = 'sideBar-link'>CLIPS</Link></div>
+            <div><Link to = "/earrings" className = 'sideBar-link'>EARRINGS</Link></div>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
-            <div><a href = "../Pages/about.js" className = 'sideBar-link'><b>ABOUT ME!</b></a></div>
+            <div><Link to = "/about" className = 'sideBar-link'><b>ABOUT ME!</b></Link></div>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
-            <div><a href = "../Pages/contact.js" className = 'sideBar-link'><b>CONTACT</b></a></div>
+            <div><Link to = "/contact" className = 'sideBar-link'><b>CONTACT</b></Link></div>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
             <div>
                 <a href = "https://www.instagram.com/shopbubbli/" className = "image-button" onMouseEnter = {() => setIsHovering(true)} onMouseLeave = {() => setIsHovering(false)}><img src = {isHovering ? igLogoHover : igLogo} alt = "Logo" /></a>

@@ -1,14 +1,14 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(267px, 1fr));
-    gap: 20px;
-    margin: 20px 30px
+    gap: 10px;
+    margin: 10px 30px
 }
 
 @media (max-width: 600px) {
     .grid-container {
         grid-template-columns: 1fr;
-        margin: 20px 30px;
+        margin: 10px 30px;
     }
 }
 
