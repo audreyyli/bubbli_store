@@ -8,16 +8,7 @@ const SideBar = ({isOpen, top}) => {
 
     if (!isOpen) return null;
     return (
-        <div style = {{
-            left: 0,
-            top: top,
-            width: '250px',
-            height: 'calc(100% -' + top + ')',
-            backgroundColor: '#FFF',
-            padding: '10px 15px 0 30px',
-            boxSizing: 'border-box',
-            zIndex: 1000
-        }}>
+        <div className = {`sideBar ${isOpen ? 'open' : ''}`} style = {{ left: isOpen ? '0' : '-250px'}}>
             <p><b>PRODUCTS</b></p>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
             <div><a href = "../Pages/all.js" className = 'sideBar-link'>ALL</a></div>

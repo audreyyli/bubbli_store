@@ -1,14 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import SideBar from './SideBar';
-import {TfiMenu} from 'react-icons/tfi';
-import {IoMdCart} from 'react-icons/io';
+import { TfiMenu } from 'react-icons/tfi';
+import { IoMdCart } from 'react-icons/io';
 import logo from '../Pictures/logo.png';
 
-const TopBar = ({ cartCount, cartTotal }) => {
+const TopBar = ({ cartCount, cartTotal, isSideBarOpen, setSideBarOpen }) => {
     const [hover, setHover] = useState(false)
     const [cartHover, setCartHover] = useState(false)
 
-    const [isSideBarOpen, setSideBarOpen] = useState(false);
     const topBarRef = useRef(null);
     const [topBarHeight, setTopBarHeight] = useState(0);
 
