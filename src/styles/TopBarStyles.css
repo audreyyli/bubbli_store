@@ -1,0 +1,9 @@
+.topBar-link {
+    color: black;
+    text-decoration: none;
+}
+
+.topBar-link:hover {
+    color: #BDE6FF;
+    text-decoration: underline;
+}

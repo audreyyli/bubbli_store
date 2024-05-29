@@ -13,10 +13,10 @@ const SideBar = ({isOpen, top}) => {
         <div className = {`sideBar ${isOpen ? 'open' : ''}`} style = {{ left: isOpen ? '0' : '-250px'}}>
             <p><b>PRODUCTS</b></p>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
-            <div><Link to = "/all" className = 'sideBar-link'>ALL</Link></div>
-            <div><Link to = "/bracelets" className = 'sideBar-link'>BRACELETS</Link></div>
-            <div><Link to = "/clips" className = 'sideBar-link'>CLIPS</Link></div>
-            <div><Link to = "/earrings" className = 'sideBar-link'>EARRINGS</Link></div>
+            <div><Link to = "/products" className = 'sideBar-link'>ALL</Link></div>
+            <div><Link to = "/products/bracelets" className = 'sideBar-link'>BRACELETS</Link></div>
+            <div><Link to = "/products/clips" className = 'sideBar-link'>CLIPS</Link></div>
+            <div><Link to = "/products/earrings" className = 'sideBar-link'>EARRINGS</Link></div>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
             <div><Link to = "/about" className = 'sideBar-link'><b>ABOUT ME!</b></Link></div>
             <div style = {{width: '100%', height: '3px', backgroundColor: 'black', margin: '10px 0'}}></div>
