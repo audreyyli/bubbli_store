@@ -5,24 +5,18 @@ import { getProductsByCategory } from '../services/productService'
 
 const ProductCategory = () => {
     const { category } = useParams()
+    console.log("Category from URL:", category)
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const fetchedProducts = await getProductsByCategory(category)
-                setProducts(fetchedProducts)
-            } catch (error) {
-                console.error('Failed to fetch products:', error)
-            }
-        }
-
-        fetchProducts()
+        const fetchedProducts = getProductsByCategory(category)
+        console.log("Fetched Products:", fetchedProducts)
+        setProducts(fetchedProducts)
     }, [category])
 
     return (
         <div>
-            <h1>{category.toUpperCase()}</h1>
+            <h1><b>{category.toUpperCase()}</b></h1>
             <ProductList products = { products } />
         </div>
     )
