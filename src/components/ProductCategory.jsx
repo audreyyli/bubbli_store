@@ -5,12 +5,10 @@ import { getProductsByCategory } from '../services/productService'
 
 const ProductCategory = () => {
     const { category } = useParams()
-    console.log("Category from URL:", category)
     const [products, setProducts] = useState([])
 
     useEffect(() => {
         const fetchedProducts = getProductsByCategory(category)
-        console.log("Fetched Products:", fetchedProducts)
         setProducts(fetchedProducts)
     }, [category])
 

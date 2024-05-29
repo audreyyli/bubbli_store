@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import TopBar from './components/TopBar'
-import ProductList from './components/ProductList'
-import ProductCategory from './components/ProductCategory'
-import './styles/AppStyles.css'
-
-import startImg from './Pictures/start.jpg'
-
+import Layout from './components/Layout'
 import Home from './pages/home'
 import About from './pages/about'
 import Contact from './pages/contact'
 import Cart from './pages/cart'
+import ProductCategory from './components/ProductCategory'
+import AllProducts from './components/AllProducts'
+import './styles/AppStyles.css'
 
 const App = () => {
   const [cartItems] = useState([])
@@ -21,23 +18,37 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <TopBar cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen} />
-      <div style = {{ marginLeft: isSideBarOpen ? '220px' : '0', marginTop: isSideBarOpen ? '-305px' : '0'}}>
-        <img src = {startImg} alt = "Beginning Image" style = {{padding: '10px 30px 0 30px'}} />
-        <ProductList />
-        <div style = {{position: 'relative'}}>
-            <div style = {{position: 'absolute', width: 'calc(100% - 60px)', height: '3px', backgroundColor: 'black', paddingTop: '2px', left: '30px'}}></div>
-            <div style = {{padding: '15px 30px', display: 'flex', justifyContent: 'flex-end'}}>
-              <a href = "./Pages/all.js" className = 'allProducts-link'>VIEW ALL PRODUCTS →</a>
-            </div>
-          </div>
-      </div>
       <Routes>
-        <Route path = "/" element = {<Home />} />
-        <Route path = "/products/:category" element = {<ProductCategory />} />
-        <Route path = "/about" component = {<About />} />
-        <Route path = "/contact" component = {<Contact />} />
-        <Route path = "/cart" component = {<Cart />} />
+        <Route path = "/" element = {
+          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+            <Home isSideBarOpen = {isSideBarOpen} />
+          </Layout>
+        } />
+        <Route path = "/products" element = {
+          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+            <AllProducts />
+          </Layout>
+        } />
+        <Route path = "/products/:category" element = {
+          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+            <ProductCategory />
+          </Layout>
+        } />
+        <Route path = "/about" element = {
+          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+            <About />
+          </Layout>
+        } />
+        <Route path = "/contact" element = {
+          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+            <Contact />
+          </Layout>
+        } />
+        <Route path = "/cart" element = {
+          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+            <Cart />
+          </Layout>
+        } />
       </Routes>
     </BrowserRouter>
   )

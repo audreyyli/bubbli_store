@@ -50,9 +50,12 @@ const allProducts = [
     { id: 24, imageUrl: wisteria, name: "WISTERIA EARRINGS", price: "$6.00 USD", category: "earrings" }
   ]
 
+export const getAllProducts = () => {
+    return allProducts
+}  
+
 export const getProductsByCategory = (category) => {
     const filteredProducts = allProducts.filter(product => product.category.toLowerCase() === category.toLowerCase())
-    console.log(filteredProducts)
     return filteredProducts
 }
 
