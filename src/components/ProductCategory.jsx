@@ -82,13 +82,14 @@ const ProductCategory = () => {
                                 height: '30px', 
                                 borderRadius: '50%', 
                                 margin: '5px',
-                                backgroundColor: currentPage === i + 1 ? 'black' : hoverIndex === i ? '#BDE6FF' : 'transparent',
-                                color: currentPage === i + 1 || hoverIndex === i ? 'white' : 'black', 
+                                backgroundColor: currentPage === i + 1 ? 'black' : 'transparent',
+                                color: currentPage === i + 1 ? 'white' : hoverIndex === i ? '#BDE6FF' : 'black', 
+                                textDecoration: currentPage === i + 1 ? 'none' : (hoverIndex === i ? 'underline' : 'none'),
                                 border : 'transparent',
                                 display: 'inline-flex', 
                                 justifyContent: 'center', 
                                 alignItems: 'center', 
-                                cursor: 'pointer'
+                                cursor: currentPage === i + 1 ? 'default' : 'pointer'
                             }}>
                                 {i + 1}
                             </button>
