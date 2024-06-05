@@ -3,10 +3,9 @@ import Product from './Product'
 
 const ProductList = ( { products }) => {
     if (!products) {
-        console.error("ProductList was called without products.")
         return null
     }
-    
+
     return (
         <div className = 'grid-container'>
             {products.map(product => (

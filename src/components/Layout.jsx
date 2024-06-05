@@ -1,6 +1,5 @@
 import React from 'react'
 import TopBar from './TopBar'
-import SideBar from './SideBar'
 
 const Layout = ({ children, cartCount, cartTotal, isSideBarOpen, setSideBarOpen }) => {
     return (
