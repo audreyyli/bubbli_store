@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import {getAllProducts} from '../services/productService'
+import {useCart} from '../contexts/CartContext'
 
 const ProductDetails = () => {
     const [product, setProduct] = useState(null)
     const [hover, setHover] = useState(false)
     const {productId} = useParams()
+    const {addToCart} = useCart()
 
     useEffect(() => {
         const allProducts = getAllProducts()
@@ -31,7 +33,7 @@ const ProductDetails = () => {
                 <img src = {product.imageUrl} alt = {product.name} style = {{ width: '100%', maxWidth: '60%', marginBottom: '20px' }} />
                 <div style = {{ flexGrow: 1, maxWidth: '40%', marginLeft: '20px' }}>
                     {product.inventory > 0 ? (
-                        <button onMouseEnter = {() => setHover(true)} onMouseLeave = {() => setHover(false)}
+                        <button onClick = {() => addToCart(product)} onMouseEnter = {() => setHover(true)} onMouseLeave = {() => setHover(false)}
                             style = {{
                             position: 'relative',
                             display: 'flex',
@@ -43,7 +45,8 @@ const ProductDetails = () => {
                             fontSize: '20px',
                             border: 'none',
                             padding: '10px',
-                            width: '100%'
+                            width: '100%',
+                            marginBottom: '20px'
                         }}>
                             <span style = {{ fontSize: '13px', fontWeight: 'bold' }}>{product.price}</span>
                             ADD TO CART
@@ -52,7 +55,7 @@ const ProductDetails = () => {
                     ) : (
                         <div></div>
                     )}
-                    <div style = {{ height: '2px', backgroundColor: 'black', marginTop: '20px', marginBottom: '20px' }}></div>
+                    <div style = {{ height: '2px', backgroundColor: 'black', marginBottom: '20px' }}></div>
                     <div style = {{ textAlign: 'center', width: '100%', fontSize: '13px', textDecoration: 'underline' }}>INVENTORY</div>
                     <div style = {{ height: '2px', backgroundColor: 'black', marginTop: '20px', marginBottom: '20px' }}></div>
                     <div style = {{ fontSize: '13px'}}>{inventoryStatus}</div>

@@ -2,13 +2,15 @@ import React, { useState, useRef, useEffect } from 'react';
 import SideBar from './SideBar';
 import { TfiMenu } from 'react-icons/tfi';
 import { IoMdCart } from 'react-icons/io';
+import { useCart } from '../contexts/CartContext'
 import logo from '../Pictures/logo.png';
 
 import { Link } from 'react-router-dom'
 
-const TopBar = ({ cartCount, cartTotal, isSideBarOpen, setSideBarOpen }) => {
+const TopBar = ({ isSideBarOpen, setSideBarOpen }) => {
     const [hover, setHover] = useState(false)
     const [cartHover, setCartHover] = useState(false)
+    const {cartCount, cartTotal} = useCart();
 
     const topBarRef = useRef(null);
     const [topBarHeight, setTopBarHeight] = useState(0);

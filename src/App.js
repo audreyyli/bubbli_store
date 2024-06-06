@@ -8,7 +8,9 @@ import Cart from './pages/cart'
 import ProductCategory from './components/ProductCategory'
 import AllProducts from './components/AllProducts'
 import ProductDetails from './components/ProductDetails'
+import { CartProvider } from './contexts/CartContext'
 import './styles/AppStyles.css'
+
 
 const App = () => {
   const [cartItems] = useState([])
@@ -19,43 +21,45 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path = "/" element = {
-          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
-            <Home isSideBarOpen = {isSideBarOpen} />
-          </Layout>
-        } />
-        <Route path = "/products" element = {
-          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
-            <AllProducts />
-          </Layout>
-        } />
-        <Route path = "/products/:category" element = {
-          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
-            <ProductCategory />
-          </Layout>
-        } />
-        <Route path = "/product-details/:productId" element = {
-          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
-            <ProductDetails />
-          </Layout>
-        } />
-        <Route path = "/about" element = {
-          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
-            <About />
-          </Layout>
-        } />
-        <Route path = "/contact" element = {
-          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
-            <Contact />
-          </Layout>
-        } />
-        <Route path = "/cart" element = {
-          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
-            <Cart />
-          </Layout>
-        } />
-      </Routes>
+      <CartProvider>
+        <Routes>
+          <Route path = "/" element = {
+            <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+              <Home isSideBarOpen = {isSideBarOpen} />
+            </Layout>
+          } />
+          <Route path = "/products" element = {
+            <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+              <AllProducts />
+            </Layout>
+          } />
+          <Route path = "/products/:category" element = {
+            <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+              <ProductCategory />
+            </Layout>
+          } />
+          <Route path = "/product-details/:productId" element = {
+            <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+              <ProductDetails />
+            </Layout>
+          } />
+          <Route path = "/about" element = {
+            <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+              <About />
+            </Layout>
+          } />
+          <Route path = "/contact" element = {
+            <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+              <Contact />
+            </Layout>
+          } />
+          <Route path = "/cart" element = {
+            <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+              <Cart />
+            </Layout>
+          } />
+        </Routes>
+      </CartProvider>
     </BrowserRouter>
   )
 }
