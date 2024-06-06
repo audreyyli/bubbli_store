@@ -7,6 +7,7 @@ import Contact from './pages/contact'
 import Cart from './pages/cart'
 import ProductCategory from './components/ProductCategory'
 import AllProducts from './components/AllProducts'
+import ProductDetails from './components/ProductDetails'
 import './styles/AppStyles.css'
 
 const App = () => {
@@ -32,6 +33,11 @@ const App = () => {
         <Route path = "/products/:category" element = {
           <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
             <ProductCategory />
+          </Layout>
+        } />
+        <Route path = "/product-details/:productId" element = {
+          <Layout cartCount = {cartCount} cartTotal = {cartTotal} isSideBarOpen = {isSideBarOpen} setSideBarOpen = {setSideBarOpen}>
+            <ProductDetails />
           </Layout>
         } />
         <Route path = "/about" element = {

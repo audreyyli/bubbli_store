@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Product = ({imageUrl, name, price}) => {
+const Product = ({id, imageUrl, name, price}) => {
     return (
         <div style = {{textAlign: 'left'}}>
             <img src = {imageUrl} alt = {name} style = {{width: '100%', height: 'auto'}} />

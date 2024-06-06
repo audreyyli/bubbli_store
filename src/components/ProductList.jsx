@@ -1,5 +1,6 @@
 import React from 'react'
 import Product from './Product'
+import {Link} from 'react-router-dom'
 
 const ProductList = ( { products }) => {
     if (!products) {
@@ -9,9 +10,9 @@ const ProductList = ( { products }) => {
     return (
         <div className = 'grid-container'>
             {products.map(product => (
-                <div key = {product.id}>
-                    <Product imageUrl = {product.imageUrl} name = {product.name} price = {product.price} />
-                </div>
+                <Link key = {product.id} to = {`/product-details/${product.id}`}>
+                    <Product id = {product.id} imageUrl = {product.imageUrl} name = {product.name} price = {product.price} />
+                </Link>
             ))}
         </div>
     )
