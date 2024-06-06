@@ -4,6 +4,7 @@ import emailjs from 'emailjs-com'
 emailjs.init('XFReRobTXMJlOGRsj')
 
 const Contact = () => {
+    const [hover, setHover] = useState(false)
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -55,35 +56,37 @@ const Contact = () => {
                     {Object.entries(formData).map(([key, value]) => (
                         <div key = {key} style = {{marginBottom: '20px', position: 'relative'}}>
                             {key !== 'message' ? (
-                                <input type = {key === 'email' ? 'email' : 'text'}
+                                <input
+                                style = {{paddingTop: '27px',
+                                    paddingLeft: '10px',
+                                    paddingRight: '10px',
+                                    paddingBottom: '10px',
+                                    width: '100%',
+                                    border: '2px solid black',
+                                    fontSize: '16px',
+                                    boxSizing: 'border-box',
+                                    height: '70px'}}
+                                type = {key === 'email' ? 'email' : 'text'}
                                 name = {key}
                                 value = {value}
                                 onChange = {handleChange}
                                 required
-                                style = {{
-                                    paddingTop: '26px',
-                                    padding: ' 10px 10px 10px 10px',
-                                    width: '100%', 
-                                    border: '2px solid black', 
-                                    fontSize: '16px', 
-                                    boxSizing: 'border-box'
-                                }} 
                                 />
                             ) : (
                                 <textarea 
+                                    style = {{width: '100%',
+                                        paddingTop: '27px',
+                                        paddingLeft: '10px',
+                                        paddingRight: '10px',
+                                        paddingBottom: '10px',
+                                        border: '2px solid black',
+                                        height: '150px',
+                                        fontSize: '16px',
+                                        boxSizing: 'border-box'}}
                                     name = 'message' 
                                     value = {formData.message} 
                                     onChange = {handleChange} 
                                     required
-                                    style = {{
-                                        width: '100%',
-                                        paddingTop: '26px', 
-                                        padding: '10px', 
-                                        border: '2px solid black', 
-                                        height: '150px', 
-                                        fontSize: '16px',
-                                        boxSizing: 'border-box'
-                                    }}
                                 />
                             )}
                             {key !== 'message' ? (
@@ -93,7 +96,7 @@ const Contact = () => {
                                     top: value ? '20px' : '50%', 
                                     transform: 'translateY(-50%)',
                                     transition: 'all 0.3s ease',
-                                    fontSize: value ? '12px' : '16px', 
+                                    fontSize: value ? '12px' : '16px',
                                     padding: '0 4px'
                                 }}>
                                     <b>{key.toUpperCase()}</b>
@@ -105,7 +108,7 @@ const Contact = () => {
                                     top: value ? '20px' : '30px', 
                                     transform: 'translateY(-50%)',
                                     transition: 'all 0.3s ease',
-                                    fontSize: value ? '12px' : '16px', 
+                                    fontSize: value ? '12px' : '16px',
                                     padding: '0 4px'
                                 }}>
                                     <b>{key.toUpperCase()}</b>
@@ -113,13 +116,13 @@ const Contact = () => {
                             )}
                         </div>
                         ))}
-                        <button type = "submit" style = {{padding: '10px 20px', margin: '10px 0', backgroundColor: 'black', color: 'white', border: 'none', cursor: 'pointer', fontWeight: 'bold'}}>SEND MESSAGE  🡲</button>
+                        <button type = "submit" onMouseEnter = {() => setHover(true)} onMouseLeave = {() => setHover(false)} style = {{padding: '10px 20px', margin: '10px 0', backgroundColor: hover ? '#BDE6FF' : 'black', color: 'white', border: 'none', cursor: 'pointer', fontWeight: 'bold', textDecoration: hover ? 'underline' : 'none'}}>SEND MESSAGE  🡲</button>
                     </form>
                 ) : (
-                    <div>
-                        <p><b>YOUR MESSAGE HAS BEEN SENT!</b></p>
+                    <div style = {{textAlign: 'center'}}>
+                        <p style = {{fontSize: '20px'}}><b>YOUR MESSAGE HAS BEEN SENT!</b></p>
                         <p>WE'LL GET BACK TO YOU SOON.</p>
-                        <button onClick = {() => setIsSent(false)}>SEND ANOTHER MESSAGE</button>
+                        <button onClick = {() => setIsSent(false)} onMouseEnter = {() => setHover(true)} onMouseLeave = {() => setHover(false)} style = {{marginTop: '10px', border: 'transparent', backgroundColor: hover ? '#BDE6FF' : 'black', color: 'white', textDecoration: hover ? 'underline' : 'none'}}>SEND ANOTHER MESSAGE</button>
                     </div>
                 )}
             </div>

@@ -30,12 +30,8 @@ const ProductCategory = () => {
         const totalItems = fetchedProducts.length
         setTotalPages(Math.ceil(totalItems / itemsPerPage))
 
-        const indexOfLastItem = currentPage * itemsPerPage
-        const indexOfFirstItem = indexOfLastItem - itemsPerPage
-        const currentItems = fetchedProducts.slice(indexOfFirstItem, indexOfLastItem)
-
         setProducts(fetchedProducts)
-    }, [category])
+    }, [category, sortType])
 
     const handlePageClick = (page) => {
         setCurrentPage(page)
