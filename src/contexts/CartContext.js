@@ -9,23 +9,15 @@ export const CartProvider = ({ children }) => {
 
     const addToCart = (product) => {
         const productPrice = parseFloat(product.price.replace(/\$/g, ''))
-        console.log('Adding to cart:', product)
-        setCartItems(prevItems => {
-            const itemFound = prevItems.find(item => item.id === product.id)
-            if (itemFound) {
-                const newItems = prevItems.map(item =>
-                    item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-                )
-                console.log("Updated cart items:", newItems)
-                return newItems;
-            } else {
-                const newItem = {...product, price: productPrice, quantity: 1}
-                console.log(productPrice)
-                const newItems = [...prevItems, newItem]
-                console.log("New cart items:", newItems)
-                return newItems
-            }
-        })
+        
+        const itemFound = cartItems.find(item => item.id === product.id)
+
+        if (itemFound) {
+            alert('This product has already been added to the cart.')
+        } else {
+            const newItem = {...product, price: productPrice, quantity: 1}
+            setCartItems(prevItems => [...prevItems, newItem])
+        }
     };
 
     const cartCount = cartItems.reduce((count, item) => count + item.quantity, 0)
@@ -37,3 +29,5 @@ export const CartProvider = ({ children }) => {
         </CartContext.Provider>
     )
 }
+
+export default CartProvider
